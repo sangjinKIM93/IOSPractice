@@ -10,6 +10,8 @@ import UIKit
 
 class ComposeViewController: UIViewController {
     
+    var editTarget: Memo?
+    var originalMemoContent: String?
     
     @IBOutlet weak var memoTextView: UITextView!
     
@@ -20,13 +22,18 @@ class ComposeViewController: UIViewController {
             return
         }
         
-//        let newMemo = Memo(content: memo)
-//        Memo.dummyMemoList.append(newMemo)
-        DataManager.shared.addNewMemo(memo)
+        if let target = editTarget {
+            //memo idx를 자체적으로 인식해서 바꿔주나보네?
+            target.content = memo
+            DataManager.shared.saveContext()
+            NotificationCenter.default.post(name: ComposeViewController.memoDidChange, object: nil)
+            
+        } else {
+            DataManager.shared.addNewMemo(memo)
+            NotificationCenter.default.post(name: ComposeViewController.newMemoDidInsert, object: nil)
+        }
         
-        //라디오 방송국. 앱 전체에 broadcast하는거야
-        //옵저버가 설치된 곳에서 해당 신호를 받을 수 있어
-        NotificationCenter.default.post(name: ComposeViewController.newMemoDidInsert, object: nil)
+        
         
         
         dismiss(animated: true, completion: nil)
@@ -41,9 +48,29 @@ class ComposeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        if let memo = editTarget{
+            navigationItem.title = "메모 편집"
+            memoTextView.text = memo.content
+            originalMemoContent = memo.content
+        } else {
+            navigationItem.title = "새 메모"
+            memoTextView.text = ""
+        }
+        
+        memoTextView.delegate = self    //뷰 컨트롤러를 textview의 delegate로 지정
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.presentationController?.delegate = self
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        navigationController?.presentationController?.delegate = nil
+    }
 
     /*
     // MARK: - Navigation
@@ -57,7 +84,44 @@ class ComposeViewController: UIViewController {
 
 }
 
+//textView의 변화를 감지할 수 있는 코드
+extension ComposeViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        if let original = originalMemoContent, let edited = textView.text {
+            if #available(iOS 13.0, *) {
+                isModalInPresentation = original != edited
+            } else {
+                
+            }
+        }
+        
+    }
+}
+
+// 편집중이라 내려가지 않는 상황일때 호출. 즉, isModalInpresentation일때
+extension ComposeViewController : UIAdaptivePresentationControllerDelegate {
+    func presentationControllerDidAttemptToDismiss(_ presentationController: UIPresentationController) {
+        
+        let alert = UIAlertController(title: "알림", message: "편집한 내용을 저장할까요?", preferredStyle: .alert)
+        
+        let okAction = UIAlertAction(title: "확인", style: .default) { [weak self](action) in
+            self?.saveBtn(action)
+        }
+        alert.addAction(okAction)
+        
+        let cancelAction = UIAlertAction(title: "취소", style: .default) { [weak self](action) in
+            self?.closeBtn(action)
+        }
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
+        
+    }
+}
+
+
 extension ComposeViewController {
     //notificataion : 라디오 방송
     static let newMemoDidInsert = Notification.Name("newMemoInsert")
+    static let memoDidChange = Notification.Name("memoDidChange")
 }
