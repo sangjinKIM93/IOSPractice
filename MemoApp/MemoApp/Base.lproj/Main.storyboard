@@ -112,7 +112,7 @@
             <objects>
                 <navigationController id="GyB-dt-Y7y" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="fH2-CR-1hz">
-                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="104.5"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
@@ -241,6 +241,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ZI9-4c-d9f"/>
+        <segue reference="hOW-ZV-AHS"/>
     </inferredMetricsTieBreakers>
 </document>
