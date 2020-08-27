@@ -31,19 +31,25 @@
                                 <rect key="frame" x="292" y="433" width="30" height="30"/>
                                 <state key="normal" title="plus"/>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="zDz-K0-gsi">
+                                <rect key="frame" x="197" y="338" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="zDz-K0-gsi" firstAttribute="centerX" secondItem="aUc-dE-G0Q" secondAttribute="centerX" id="5wA-pk-MPk"/>
                             <constraint firstItem="bgs-wl-di6" firstAttribute="centerX" secondItem="aUc-dE-G0Q" secondAttribute="centerX" constant="-100" id="7sQ-KD-v9p"/>
                             <constraint firstItem="PqT-pg-mlR" firstAttribute="centerX" secondItem="aUc-dE-G0Q" secondAttribute="centerX" id="Qxq-ub-K5i"/>
                             <constraint firstItem="c8k-x3-2Tm" firstAttribute="centerY" secondItem="aUc-dE-G0Q" secondAttribute="centerY" id="YjV-QJ-8hM"/>
                             <constraint firstItem="PqT-pg-mlR" firstAttribute="centerY" secondItem="aUc-dE-G0Q" secondAttribute="centerY" id="f9b-Qf-rSA"/>
                             <constraint firstItem="c8k-x3-2Tm" firstAttribute="centerX" secondItem="aUc-dE-G0Q" secondAttribute="centerX" constant="100" id="fcc-DY-3yZ"/>
                             <constraint firstItem="bgs-wl-di6" firstAttribute="centerY" secondItem="aUc-dE-G0Q" secondAttribute="centerY" id="rj5-dH-ZSu"/>
+                            <constraint firstItem="zDz-K0-gsi" firstAttribute="centerY" secondItem="aUc-dE-G0Q" secondAttribute="centerY" constant="-100" id="tKt-ky-kZR"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JsC-O2-Ih3"/>
                     </view>
                     <connections>
+                        <outlet property="indicatorView" destination="zDz-K0-gsi" id="Flh-rh-hDN"/>
                         <outlet property="minusBtn" destination="bgs-wl-di6" id="2nz-rM-b6i"/>
                         <outlet property="numberLabel" destination="PqT-pg-mlR" id="de2-dI-qBV"/>
                         <outlet property="plusBtn" destination="c8k-x3-2Tm" id="72y-dd-bbJ"/>

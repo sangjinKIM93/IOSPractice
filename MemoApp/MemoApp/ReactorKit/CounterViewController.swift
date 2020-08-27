@@ -18,6 +18,7 @@ class CounterViewController: UIViewController, StoryboardView {
     @IBOutlet weak var numberLabel: UILabel!
     @IBOutlet weak var minusBtn: UIButton!
     @IBOutlet weak var plusBtn: UIButton!
+    @IBOutlet weak var indicatorView: UIActivityIndicatorView!
     
     func bind(reactor: CounterViewReactor) {
         // Action 바인딩
@@ -36,7 +37,13 @@ class CounterViewController: UIViewController, StoryboardView {
             .map{ $0.value }
             .distinctUntilChanged()     //이전값이랑 다를때만
             .map{ "\($0)" }
-            .bind(to: numberLabel.rx.text)
+            .bind(to: numberLabel.rx.text)  //reactor의 state를 가져와 label에 바인딩
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map{ $0.isLoading }
+            .distinctUntilChanged()
+            .bind(to: indicatorView.rx.isAnimating)
             .disposed(by: disposeBag)
     }
         
