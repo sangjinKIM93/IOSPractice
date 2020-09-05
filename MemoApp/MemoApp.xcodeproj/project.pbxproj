@@ -19,6 +19,9 @@
 		4837644524A9B6890070612E /* ComposeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4837644424A9B6890070612E /* ComposeViewController.swift */; };
 		48953D4724A9F7BE00ED9AA4 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48953D4624A9F7BE00ED9AA4 /* DataManager.swift */; };
 		4897217824F5E33F0014D4F1 /* CounterViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4897217724F5E33F0014D4F1 /* CounterViewReactor.swift */; };
+		48B2C25F24F7E74C001B2D49 /* Transition.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48B2C25E24F7E74C001B2D49 /* Transition.storyboard */; };
+		48B2C26124F7E774001B2D49 /* TransitionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B2C26024F7E774001B2D49 /* TransitionViewController.swift */; };
+		48B2C26324F7E8B4001B2D49 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48B2C26224F7E8B4001B2D49 /* SecondViewController.swift */; };
 		48C806D224A9C78200E49CF8 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C806D124A9C78200E49CF8 /* UIViewController+Alert.swift */; };
 		48C806D424A9D12500E49CF8 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48C806D324A9D12500E49CF8 /* DetailViewController.swift */; };
 		48D28E5D24F5DE0400F6E5C6 /* Reactor.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 48D28E5C24F5DE0400F6E5C6 /* Reactor.storyboard */; };
@@ -42,6 +45,9 @@
 		4837644424A9B6890070612E /* ComposeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeViewController.swift; sourceTree = "<group>"; };
 		48953D4624A9F7BE00ED9AA4 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		4897217724F5E33F0014D4F1 /* CounterViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CounterViewReactor.swift; sourceTree = "<group>"; };
+		48B2C25E24F7E74C001B2D49 /* Transition.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Transition.storyboard; sourceTree = "<group>"; };
+		48B2C26024F7E774001B2D49 /* TransitionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransitionViewController.swift; sourceTree = "<group>"; };
+		48B2C26224F7E8B4001B2D49 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		48C806D124A9C78200E49CF8 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		48C806D324A9D12500E49CF8 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		48D28E5C24F5DE0400F6E5C6 /* Reactor.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Reactor.storyboard; sourceTree = "<group>"; };
@@ -83,6 +89,7 @@
 		4837642424A9A81D0070612E /* MemoApp */ = {
 			isa = PBXGroup;
 			children = (
+				48B2C25C24F7E6AC001B2D49 /* ETC */,
 				48D28E5B24F5DDE600F6E5C6 /* ReactorKit */,
 				48953D4524A9F7B000ED9AA4 /* Data */,
 				4837643D24A9AA8E0070612E /* Model */,
@@ -116,6 +123,24 @@
 				48953D4624A9F7BE00ED9AA4 /* DataManager.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		48B2C25C24F7E6AC001B2D49 /* ETC */ = {
+			isa = PBXGroup;
+			children = (
+				48B2C25D24F7E6C2001B2D49 /* Animation */,
+			);
+			path = ETC;
+			sourceTree = "<group>";
+		};
+		48B2C25D24F7E6C2001B2D49 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				48B2C25E24F7E74C001B2D49 /* Transition.storyboard */,
+				48B2C26024F7E774001B2D49 /* TransitionViewController.swift */,
+				48B2C26224F7E8B4001B2D49 /* SecondViewController.swift */,
+			);
+			path = Animation;
 			sourceTree = "<group>";
 		};
 		48D28E5B24F5DDE600F6E5C6 /* ReactorKit */ = {
@@ -209,6 +234,7 @@
 				48D28E5D24F5DE0400F6E5C6 /* Reactor.storyboard in Resources */,
 				4837643224A9A81F0070612E /* Assets.xcassets in Resources */,
 				4837642D24A9A81D0070612E /* Main.storyboard in Resources */,
+				48B2C25F24F7E74C001B2D49 /* Transition.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +291,7 @@
 				48953D4724A9F7BE00ED9AA4 /* DataManager.swift in Sources */,
 				48D28E5F24F5DE3200F6E5C6 /* CounterViewController.swift in Sources */,
 				4837642A24A9A81D0070612E /* ViewController.swift in Sources */,
+				48B2C26324F7E8B4001B2D49 /* SecondViewController.swift in Sources */,
 				4837644524A9B6890070612E /* ComposeViewController.swift in Sources */,
 				4837642624A9A81D0070612E /* AppDelegate.swift in Sources */,
 				4897217824F5E33F0014D4F1 /* CounterViewReactor.swift in Sources */,
@@ -273,6 +300,7 @@
 				4837644124A9AAE90070612E /* Memo.swift in Sources */,
 				4837644324A9AC8D0070612E /* MemoListTableViewController.swift in Sources */,
 				48C806D224A9C78200E49CF8 /* UIViewController+Alert.swift in Sources */,
+				48B2C26124F7E774001B2D49 /* TransitionViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
